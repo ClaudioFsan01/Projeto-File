@@ -40,10 +40,16 @@ public class Principal {
 			System.out.println(" Foi lido arquivo o numero : "+ numero);
 			
 			TestaEntrada te = new TestaEntrada();
+			TestaSaida ts = new TestaSaida();
 			
 			te.readFile();
+			
+			ts.writeFile();
+			
 						
 		}catch(FileNotFoundException e) {
+			System.out.println(" Erro : "+ e.getMessage());
+		}catch(IOException e) {
 			System.out.println(" Erro : "+ e.getMessage());
 		}
 	}

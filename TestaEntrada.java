@@ -21,21 +21,29 @@ import java.io.BufferedReader;
 public class TestaEntrada {
 	
 	public void readFile() throws IOException{
-		InputStream is = new FileInputStream("C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\file2.txt"); 
-		InputStreamReader isr = new InputStreamReader(is);
-		BufferedReader br = new BufferedReader(isr);
+		InputStream is = new FileInputStream("C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\entrada.txt"); 
+		InputStreamReader isr = new InputStreamReader(is); //InputStreamReader ler o caracteres do arquivo
+		BufferedReader br = new BufferedReader(isr); //BufferedReader concatena os caracteres lido criando uma String
 		String s;
-		 do{
+		
+		 s =  br.readLine();
+		
+		while(s != null)
+		{			
+			System.out.println(s);			
 			 s =  br.readLine();
-			System.out.println(s);
 			
-		}while(s != null);		
+		}
 		 
 		 br.close(); // Fecha o fluxo e libera todos os recursos do sistema associados a ele.
 		 
 	}
 
 }
+
+/*O método readLine devolve a linha que foi lida e
+muda o cursor para a próxima linha. Caso ele chegue ao fim do Reader (no nosso caso, fim do
+arquivo), ele vai devolver null . Então, com um simples laço, podemos ler o arquivo por inteiro:*/
 
 
 /* InputStreamReader é filha da classe abstrata Reader , que possui diversas outras filhas - são
@@ -56,6 +64,9 @@ construtor.
 O método readLine devolve a linha que foi lida e
 muda o cursor para a próxima linha. Caso ele chegue ao fim do Reader (no nosso caso, fim do
 arquivo), ele vai devolver null . Então, com um simples laço, podemos ler o arquivo por inteiro:
+
+
+Esse padrão de composição é bastante utilizado e conhecido. É o Decorator Pattern. (Padrão decorador)
 
 */
 

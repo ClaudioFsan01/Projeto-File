@@ -13,10 +13,14 @@ faz isso por você é a classe InputStreamReader .
 
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class TestaEntrada {
 	
@@ -24,18 +28,30 @@ public class TestaEntrada {
 		InputStream is = new FileInputStream("C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\entrada.txt"); 
 		InputStreamReader isr = new InputStreamReader(is); //InputStreamReader ler o caracteres do arquivo
 		BufferedReader br = new BufferedReader(isr); //BufferedReader concatena os caracteres lido criando uma String
-		String s;
+		TestaSaida ts = new TestaSaida();		
+	    List <String> letraMusica = new ArrayList<>();
 		
-		 s =  br.readLine();
+		  try {			 
+				String letra =  br.readLine();
+				
+				while(letra != null)
+				{	
+							
+				//System.out.println(s);			
+					letraMusica.add(letra);					
+					letra =  br.readLine();
+			    }
+				
+			  ts.writeFile(letraMusica);		
+		  }catch(FileNotFoundException e) { 
+			  System.out.println(e.getMessage());
+		  }catch(IOException e) {
+			  System.out.println(e.getMessage());
+		  }finally{
+			  br.close(); // Fecha o fluxo e libera todos os recursos do sistema associados a ele.
+		  }
+			 
 		
-		while(s != null)
-		{			
-			System.out.println(s);			
-			 s =  br.readLine();
-			
-		}
-		 
-		 br.close(); // Fecha o fluxo e libera todos os recursos do sistema associados a ele.
 		 
 	}
 

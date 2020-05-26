@@ -34,17 +34,19 @@ public class Principal {
 	
 	public static void main(String [] args) throws IOException{
 		try {
-			InputStream is = new FileInputStream("C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\file.txt"); // classe FileInputStream é filha da InputStream
-			int numero = is.read();
+			//InputStream is = new FileInputStream("C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\file.txt"); // classe FileInputStream é filha da InputStream
+			//int numero = is.read();
 			
-			System.out.println(" Foi lido arquivo o numero : "+ numero);
+			//System.out.println(" Foi lido arquivo o numero : "+ numero);
 			
 			TestaEntrada te = new TestaEntrada();
-			TestaSaida ts = new TestaSaida();
+		
+			
+			// lendo os dados do arquivo entrada e escrevendo no arquivo saida
 			
 			te.readFile();
 			
-			ts.writeFile();
+		
 			
 						
 		}catch(FileNotFoundException e) {

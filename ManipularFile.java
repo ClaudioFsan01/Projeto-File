@@ -1,5 +1,8 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,6 +20,8 @@ public class ManipularFile {
 	//Scanner sc = new Scanner(System.in);
 		
 	public void escreverArquivoDadosLidosTeclado() throws IOException {
+		
+		Scanner sc = new Scanner(System.in);
 		
       String diretorio = "C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\file2.txt";
 		
@@ -36,8 +41,8 @@ public class ManipularFile {
 											
 					ps.println(frase);					
 					
-				
-			}while(frase != "");		
+			 System.out.println(" Deseja continuar escrevendo no arquivo ? (1-sim) (2-não) : \n");	
+			}while(sc.nextInt() != 2);		
 		
 		}catch(IllegalStateException e) {
 			System.out.println(e.getMessage());
@@ -51,8 +56,10 @@ public class ManipularFile {
 	} // fechamento do método escreverArquivo()
 	
 	
+	
+	
 
-}
+
 
 /*
  hasNextLine() Retorna true se houver outra linha na entrada deste scanner. 
@@ -67,3 +74,65 @@ o construir passando uma String . Essa exceção é filha de IOException e indica q
 encontrado. O Scanner considerará que chegou ao fim se uma IOException for lançada, mas o
 PrintStream simplesmente engole exceptions desse tipo. Ambos possuem métodos para você verificar
 se algum problema ocorreu.*/
+
+
+//Classe FileReader: para entrada baseada em caracteres de um arquivo.
+//FileWriter: para saída baseada em caracteres para um arquivo.
+
+
+public void lerCaracteresArquivo(String path) throws IOException {
+	
+	FileReader fr = new FileReader(path);	
+	BufferedReader br = new BufferedReader(fr);
+	
+	String dadoLido = null;
+	
+	try {
+		
+		do {
+			dadoLido = br.readLine();
+			
+			escreverCaracteresArquivo(dadoLido);
+		    		
+		}while(dadoLido != null);		
+		
+	}catch(FileNotFoundException e) {
+		System.out.println(e.getMessage());
+	}finally {
+		br.close();
+		System.out.println(" Arquivo lido encerrado ! \n");
+	}
+	
+	
+}
+
+
+public void escreverCaracteresArquivo(String dado) throws IOException{
+	
+	String path ="C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\fileEscrito.txt";
+	
+	BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+	try {	
+			
+			bw.write(dado);
+			bw.newLine();
+			
+		
+	}catch(FileNotFoundException e) {
+		
+	}finally {
+		
+		bw.close();
+		System.out.println(" Arquivo escrito encerrado ! \n");
+		
+	}
+	
+}
+
+
+}
+
+
+
+
+

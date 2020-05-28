@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class TestaEntrada {
 	
 	public void readFile() throws IOException{
-		InputStream is = new FileInputStream("C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\entrada.txt"); 
+		InputStream is = new FileInputStream("C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\entrada.txt"); /*FileInputStream para entrada baseada em bytes de um arquivo*/
 		InputStreamReader isr = new InputStreamReader(is); //InputStreamReader ler o caracteres do arquivo
 		BufferedReader br = new BufferedReader(isr); //BufferedReader concatena os caracteres lido criando uma String
 		TestaSaida ts = new TestaSaida();		

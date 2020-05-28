@@ -41,7 +41,9 @@ public class Principal {
 			
 			TestaEntrada te = new TestaEntrada();
 			ManipularFile mf = new ManipularFile();
-		
+			
+			String path = "C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\fileLido.txt";
+		    mf.lerCaracteresArquivo(path);
 			mf.escreverArquivoDadosLidosTeclado();
 			// lendo os dados do arquivo entrada e escrevendo no arquivo saida
 			

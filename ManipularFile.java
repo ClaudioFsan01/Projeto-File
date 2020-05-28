@@ -108,20 +108,22 @@ public void lerCaracteresArquivo(String path) throws IOException {
 
 
 public void escreverCaracteresArquivo(String dado) throws IOException{
-	
+		
 	String path ="C:\\Users\\micro\\ProjetosJava\\Arquivos\\src\\fileEscrito.txt";
+	
+	Scanner sc = new Scanner(System.in);
 	
 	BufferedWriter bw = new BufferedWriter(new FileWriter(path));
 	try {	
 			
-			bw.write(dado);
-			bw.newLine();
+			bw.append(dado+"\n");
+			//bw.newLine();
 			
 		
 	}catch(FileNotFoundException e) {
 		
 	}finally {
-		
+		bw.flush();
 		bw.close();
 		System.out.println(" Arquivo escrito encerrado ! \n");
 		

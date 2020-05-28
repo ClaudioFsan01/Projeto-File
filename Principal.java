@@ -40,8 +40,9 @@ public class Principal {
 			//System.out.println(" Foi lido arquivo o numero : "+ numero);
 			
 			TestaEntrada te = new TestaEntrada();
+			ManipularFile mf = new ManipularFile();
 		
-			
+			mf.escreverArquivoDadosLidosTeclado();
 			// lendo os dados do arquivo entrada e escrevendo no arquivo saida
 			
 			te.readFile();
